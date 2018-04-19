@@ -4,9 +4,15 @@ class Header extends React.Component {
     render(){
         return (
             <div className="header">
-                <div className="fa fa-bars" aria-hidden="true"></div>
+                <div className="menuIcon">
+                    <div className="dashTop"></div>
+                    <div className="dashBottom"></div>
+                    <div className="circle"></div>
+                </div>
 
-                <span className="title">Timeline</span>
+                <span className="title">
+                    { this.props.title }
+                </span>
 
                 <input
                     type="text"

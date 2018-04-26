@@ -10,7 +10,6 @@ class ActivityItem extends React.Component {
                     <img
                         alt={ activity.text }
                         src={ activity.user.avatar } />
-                        { activity.user.name }
                 </div>
 
                 <span className="time">

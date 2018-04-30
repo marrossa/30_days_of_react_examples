@@ -10,11 +10,14 @@ class Clock extends React.Component {
     componentDidMount() {
         this.setTimer();
     }
-    
-    componentWillUnmount() {
-        if (this.timeout) {
-          clearTimeout(this.timeout);
-        }
+
+    setTimer(){
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.updateClock.bind(this), 1000);
+    }
+
+    updateClock(){
+        this.setState(this.getTime, this.setTimer);
     }
 
     getTime(){
@@ -27,15 +30,12 @@ class Clock extends React.Component {
         }
     }
 
-    setTimer(){
-        clearTimeout(this.timeout);
-        this.timeout = setTimeout(this.updateClock.bind(this), 1000);
+    componentWillUnmount() {
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+        }
     }
-
-    updateClock(){
-        this.setState(this.getTime, this.setTimer);
-    }
-
+    
     render(){
         const {hours, minutes, seconds, ampm} = this.state;
         return (

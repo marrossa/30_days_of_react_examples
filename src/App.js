@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Content from './components/Content';
 import Clock from './components/Clock';
+import Container from './components/Container';
 import './font_awesome/css/font-awesome.css';
 import { activities } from './data';
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Header title="Timeline" />
           <Content activities={ activities }/>
         </div>
+        <Container />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Clock extends React.Component {
 
@@ -35,7 +36,7 @@ class Clock extends React.Component {
           clearTimeout(this.timeout);
         }
     }
-    
+
     render(){
         const {hours, minutes, seconds, ampm} = this.state;
         return (
@@ -52,6 +53,12 @@ class Clock extends React.Component {
             </div>
         )
     }
+}
+
+Clock.propTypes = {
+    // Key is the name of the prop and
+    // value is the PropType
+
 }
 
 export default Clock;

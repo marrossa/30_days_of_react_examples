@@ -1,7 +1,7 @@
 import React from 'react';
 import ActivityItem from './GithubActivityItem';
 
-const data = require('../githubData.json').slice(0, 4);
+const data = require('../githubData.json')
 
 class Content2 extends React.Component {
     constructor(props){
@@ -9,7 +9,8 @@ class Content2 extends React.Component {
 
         this.state = {
             loading: false,
-            activities: []
+            activities: data,
+            filtered: data
         }
     }
 

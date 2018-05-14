@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchForm from './SearchForm';
 
 class Header extends React.Component {
     constructor(props){
@@ -10,22 +11,14 @@ class Header extends React.Component {
         }
     }
 
-    //toggle visibility when run on the state
+    // toggle visibility when run on the state
     showSearch(){
         this.setState({
             searchVisible: !this.state.searchVisible
         })
     }
-
+    
     render(){
-        //Classes to add to the <input /> element
-        let searchInputClasses = ["searchInput"];
-
-        //Update the class array if the state is visible
-        if(this.state.searchVisible){
-            searchInputClasses.push("active");
-        }
-
         const wrapperStyle = {
             backgroundColor: 'rgba(251, 202, 43, 1)'
         }
@@ -37,7 +30,7 @@ class Header extends React.Component {
         const menuColor = {
             backgroundColor: '#111111'
         }
-
+        
         return (
             <div style={ wrapperStyle } className="header">
                 <div className="menuIcon">
@@ -50,23 +43,23 @@ class Header extends React.Component {
                     { this.props.title }
                 </span>
 
-                <input
-                    type="text"
-                    className={searchInputClasses.join(' ')}
-                    placeholder="Search..." />
+                <SearchForm 
+                    searchVisible = {this.state.searchVisible}
+                    onSubmit = { this.props.onSubmit } />
 
                 {/* Adding an onClick handler to call the showSearch button */}
                 <div
-                    style = {titleStyle}
                     onClick={this.showSearch.bind(this)} 
-                    className="fa fa-search searchIcon"></div>
+                    className="fa fa-search searchIcon">
+                </div>
             </div>
         )
     }
 }
 
 Header.propTypes =  {
-    title: PropTypes.string
+    title: PropTypes.string,
+    onSearch: PropTypes.func
 }
 
 Header.defaultProps = {
